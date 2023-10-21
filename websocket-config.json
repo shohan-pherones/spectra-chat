@@ -1,0 +1,23 @@
+{
+  "server": {
+    "host": "http://localhost:3000",
+    "port": 8080,
+    "protocol": "ws"
+  },
+  "security": {
+    "key": null,
+    "cert": "/**",
+    "keyPath": "/**/socket/dir/publish/**"
+  },
+  "options": {
+    "path": "/app/api/**",
+    "maxConnections": 100,
+    "pingInterval": 30000,
+    "perMessageDeflate": true,
+    "idleTimeout": 60000
+  },
+  "logging": {
+    "logLevel": "info",
+    "logFile": null
+  }
+}
