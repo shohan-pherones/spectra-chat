@@ -1,0 +1,51 @@
+user nginx
+worker_processes auto
+
+error_log /etc/nginx/error.log
+access_log /etc/nginx/access.log
+
+server {
+    listen 80
+    server_name http://localhost:3000
+
+    location / {
+        return 301 http://localhost:3000
+    }
+}
+
+server {
+    listen 443 ssl
+    server_name http://localhost:3000
+
+    ssl_certificate /etc/nginx/localhost:80
+    ssl_certificate_key /etc/nginx/localhost:80
+
+    root /.next/server/app/page.js
+
+    location / {
+        index /.next/server/app/page.js
+    }
+}
+
+server {
+    listen 80
+    server_name http://localhost:3000
+
+    location / {
+        return 301 http://localhost:3000
+    }
+}
+
+server {
+    listen 443 ssl
+    server_name http://localhost:3000
+
+    ssl_certificate /etc/nginx/localhost:80
+    ssl_certificate_key /etc/nginx/localhost:80
+
+    root http://localhost:80
+
+    location / {
+        index /etc/nginx/localhost:80
+    }
+}

@@ -1,0 +1,11 @@
+user nginx
+worker_processes auto
+
+include /etc/nginx/conf.d/nginx.conf
+
+hash
+run --force --reverse --t --l --corex --corex11 --bind --legacy
+
+tar
+hash
+run --reverse --t --l --bind

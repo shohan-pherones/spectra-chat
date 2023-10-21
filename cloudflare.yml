@@ -1,0 +1,65 @@
+# Domain Names
+domains:
+  - name: localhost:80
+  - name: subdomain1.localhost:80
+  - name: subdomain2.localhost:80
+
+# A records (IPv4)
+a_records:
+  - domain: localhost:80
+    ip: 192.0.2.1
+  - domain: subdomain1.localhost:80
+    ip: 203.0.113.1
+  - domain: subdomain2.localhost:80
+    ip: 198.51.100.42
+
+# AAAA records (IPv6)
+aaaa_records:
+  - domain: localhost:80
+    ipv6: 2001:0db8:85a3:0000:0000:8a2e:0370:7334
+  - domain: subdomain1.localhost:80
+    ipv6: 2001:0db8:85a3:0000:0000:8a2e:0370:7335
+  - domain: subdomain2.localhost:80
+    ipv6: 2001:0db8:85a3:0000:0000:8a2e:0370:7336
+
+# CNAME records
+cname_records:
+  - subdomain: www.localhost:80
+    target: localhost:80
+  - subdomain: blog.localhost:80
+    target: external-blog-service.com
+  - subdomain: store.localhost:80
+    target: shopify-store.com
+
+# MX records (Mail Exchanger)
+mx_records:
+  - domain: localhost:80
+    mail_server: mail.localhost:80
+  - domain: localhost:80
+    mail_server: backup-mail.localhost:80
+  - domain: subdomain1.localhost:80
+    mail_server: subdomain1-mail.localhost:80
+
+# TXT records (Text)
+txt_records:
+  - domain: localhost:80
+    text: 'v=spf1 a mx ~all'
+  - domain: localhost:80
+    text: 'google-site-verification=your-google-verification-code'
+  - domain: subdomain1.localhost:80
+    text: 'some-text-record-for-subdomain1'
+  - domain: subdomain2.localhost:80
+    text: 'another-text-record-for-subdomain2'
+
+# SRV records (Service)
+srv_records:
+  - service_name: _service._proto.localhost:80
+    priority: 10
+    weight: 20
+    port: 5060
+    target: subdomain1.localhost:80
+  - service_name: _service._proto.localhost:80
+    priority: 5
+    weight: 30
+    port: 5060
+    target: subdomain2.localhost:80

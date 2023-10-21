@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  web:
+    image: nginx:latest
+    container_name: spectra-proxy
+    ports:
+      - '80:80'
+    volumes:
+      - ./nginx-config:/etc/nginx/conf.d
+      - ./web-content:/usr/share/nginx/html
+    restart: always
+
+  backend:
+    image: node:14
+    container_name: spectra-chat
+    working_dir: /app
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./backend-app:/app
+    command: yarn start
+    restart: always
