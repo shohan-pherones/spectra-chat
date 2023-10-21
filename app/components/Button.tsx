@@ -1,5 +1,6 @@
 'use client';
 
+import { Loader2 } from 'lucide-react';
 import { cn } from '../lib/utils';
 
 interface ButtonProps {
@@ -28,7 +29,7 @@ const Button: React.FC<ButtonProps> = ({
       disabled={disabled}
       className={cn(
         'flex justify-center rounded-md px-5 py-2.5 text-sm font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2',
-        disabled && 'cursor-default opacity-50',
+        disabled && 'flex cursor-default items-center gap-2.5 opacity-50',
         fullWidth && 'w-full',
         secondary ? 'text-gray-900' : 'text-white',
         danger &&
@@ -38,6 +39,7 @@ const Button: React.FC<ButtonProps> = ({
           'bg-sky-500 hover:bg-sky-600 focus-visible:outline-sky-600'
       )}
     >
+      {disabled && <Loader2 size={18} className='animate-spin' />}
       {children}
     </button>
   );

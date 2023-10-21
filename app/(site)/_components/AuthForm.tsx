@@ -65,6 +65,7 @@ const AuthForm: React.FC<AuthFormProps> = ({ variant, setVariant }) => {
               register={register}
               erros={errors}
               placeholder='Sarah Parker'
+              disabled={isLoading}
             />
           )}
           <Input
@@ -74,6 +75,7 @@ const AuthForm: React.FC<AuthFormProps> = ({ variant, setVariant }) => {
             register={register}
             erros={errors}
             placeholder='hello@example.com'
+            disabled={isLoading}
           />
           <Input
             id='password'
@@ -82,10 +84,17 @@ const AuthForm: React.FC<AuthFormProps> = ({ variant, setVariant }) => {
             register={register}
             erros={errors}
             placeholder='Enter your password here'
+            disabled={isLoading}
           />
           <div>
             <Button disabled={isLoading} fullWidth type='submit'>
-              {variant == 'LOGIN' ? 'Sign in' : 'Register'}
+              {variant == 'LOGIN'
+                ? !isLoading
+                  ? 'Sign in'
+                  : 'Signing in'
+                : !isLoading
+                ? 'Register'
+                : 'Signing up'}
             </Button>
           </div>
         </form>
