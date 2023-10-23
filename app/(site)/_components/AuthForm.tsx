@@ -101,7 +101,7 @@ const AuthForm: React.FC<AuthFormProps> = ({ variant, setVariant }) => {
               id='name'
               label='Name'
               register={register}
-              erros={errors}
+              errors={errors}
               placeholder='Sarah Parker'
               disabled={isLoading}
             />
@@ -111,7 +111,7 @@ const AuthForm: React.FC<AuthFormProps> = ({ variant, setVariant }) => {
             label='Email'
             type='email'
             register={register}
-            erros={errors}
+            errors={errors}
             placeholder='hello@example.com'
             disabled={isLoading}
           />
@@ -120,7 +120,7 @@ const AuthForm: React.FC<AuthFormProps> = ({ variant, setVariant }) => {
             label='Password'
             type='password'
             register={register}
-            erros={errors}
+            errors={errors}
             placeholder='Enter your password here'
             disabled={isLoading}
           />

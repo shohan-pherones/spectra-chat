@@ -77,7 +77,7 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
                 disabled={isLoading}
                 label='Name'
                 id='name'
-                erros={errors}
+                errors={errors}
                 required
                 register={register}
               />

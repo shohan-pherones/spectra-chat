@@ -9,7 +9,7 @@ interface InputProps {
   type?: string;
   required?: boolean;
   register: UseFormRegister<FieldValues>;
-  erros: FieldErrors;
+  errors: FieldErrors;
   disabled?: boolean;
   placeholder?: string;
 }
@@ -20,7 +20,7 @@ const Input: React.FC<InputProps> = ({
   type,
   required,
   register,
-  erros,
+  errors,
   disabled,
   placeholder,
 }) => {
@@ -43,7 +43,7 @@ const Input: React.FC<InputProps> = ({
           {...register(id, { required })}
           className={cn(
             'form-input block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6',
-            erros[id] && 'focus:ring-rose-500',
+            errors[id] && 'focus:ring-rose-500',
             disabled && 'cursor-default opacity-50'
           )}
         />
