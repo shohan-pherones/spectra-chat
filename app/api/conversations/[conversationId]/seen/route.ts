@@ -56,10 +56,6 @@ export async function POST(request: Request, { params }: { params: IParams }) {
       },
     });
 
-    if (lastMessage.seenIds.indexOf(currentUser.id) !== -1) {
-      return NextResponse.json(conversation);
-    }
-
     return new NextResponse('Success');
   } catch (error) {
     return new NextResponse('Error', { status: 500 });
