@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { Toaster } from 'react-hot-toast';
+import ActiveStatus from './components/ActiveStatus';
 import './globals.css';
 import { cn } from './libs/utils';
 import AuthProvider from './providers/AuthProvider';
-import ActiveStatus from './components/ActiveStatus';
 
 const inter = Inter({ subsets: ['latin'] });
 

@@ -11,7 +11,7 @@ const useActiveChannel = () => {
     let channel = activeChannel;
 
     if (!channel) {
-      channel = pusherClient.subscribe('presence-messenger');
+      channel = pusherClient.subscribe('presence-spectra-chat');
       setActiveChannel(channel);
     }
 
@@ -35,7 +35,7 @@ const useActiveChannel = () => {
 
     return () => {
       if (activeChannel) {
-        pusherClient.unsubscribe('presence-messenger');
+        pusherClient.unsubscribe('presence-spectra-chat');
         setActiveChannel(null);
       }
     };
